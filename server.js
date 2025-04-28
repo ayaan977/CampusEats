@@ -10,11 +10,11 @@ const app = express();
 const port = 3000;
 
 // Serve the React app's static files
-app.use(express.static('dist'));
+app.use(express.static(__dirname));
 
 // Serve index.html for all routes to support client-side routing
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(port, () => {
